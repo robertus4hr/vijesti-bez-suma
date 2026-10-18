@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="hr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f6f8">
+  <meta name="description" content="Najnovije Index.hr vijesti, u čistom i brzom prikazu bez oglasa i fotografija.">
+  <title>Vijesti bez šuma</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Vijesti bez šuma, početna stranica">
+      <span class="brand-mark" aria-hidden="true">V</span>
+      <span>Vijesti <span class="brand-muted">bez šuma</span></span>
+    </a>
+    <div class="header-actions">
+      <span class="source-tag"><span class="live-dot"></span> INDEX.HR</span>
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Uključi tamni prikaz" title="Promijeni prikaz">◐</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">BRZO, JASNO, BEZ OGLASA</p>
+        <h1 id="page-title">Sve važno.<br><span>Bez digitalne gužve.</span></h1>
+        <p class="intro-copy">Naslovi i kratke najave iz Indexova RSS-a, složeni za mirno čitanje.</p>
+      </div>
+      <div class="update-card">
+        <span class="update-label">ZADNJE AŽURIRANJE</span>
+        <strong id="updated-at">Učitavam…</strong>
+        <button id="refresh" class="refresh-button" type="button" title="Ponovno učitaj zadnji feed objavljen na stranici"><span aria-hidden="true">↻</span> Učitaj zadnji feed</button>
+      </div>
+    </section>
+
+    <section class="reader" aria-label="Vijesti">
+      <div class="reader-heading">
+        <div>
+          <p class="eyebrow">PREGLED VIJESTI</p>
+          <h2>Najnovije</h2>
+        </div>
+        <span id="story-count" class="story-count"></span>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-wrap">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <span class="visually-hidden">Pretraži vijesti</span>
+          <input id="search" type="search" placeholder="Pretraži naslove…" autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+        <label class="category-wrap">
+          <span class="visually-hidden">Filtriraj po kategoriji</span>
+          <select id="category"><option value="all">Sve kategorije</option></select>
+        </label>
+      </div>
+
+      <nav class="tabs" aria-label="Filtriranje vijesti">
+        <button class="tab active" data-view="latest" type="button">Sve vijesti</button>
+        <button class="tab" data-view="unread" type="button">Nepročitano <span id="unread-count" class="tab-count"></span></button>
+        <button class="tab" data-view="saved" type="button">Spremljeno <span id="saved-count" class="tab-count"></span></button>
+      </nav>
+
+      <div id="news-list" class="news-list" aria-live="polite">
+        <div class="loading-state"><span class="spinner"></span> Učitavam vijesti…</div>
+      </div>
+      <p class="reader-note">RSS se automatski osvježava otprilike svakih 10 minuta. Gumb ponovno učitava zadnju objavljenu verziju. Feed sadrži kratke najave; puni tekst otvara se na Index.hr.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Vijesti bez šuma</span>
+    <span>Čisti prikaz RSS-a · sadržaj pripada Index.hr</span>
+  </footer>
+</body>
+</html>
